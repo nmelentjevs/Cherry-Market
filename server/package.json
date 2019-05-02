@@ -1,0 +1,24 @@
+{
+  "name": "coffessions",
+  "version": "1.0.0",
+  "description": "Anonymous chat and blog app with React.js and socket.io",
+  "main": "index.js",
+  "scripts": {
+    "client-install": "npm install --prefix ../client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ../client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Nikita Melentjevs",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
