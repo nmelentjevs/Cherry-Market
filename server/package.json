@@ -14,9 +14,14 @@
   "license": "ISC",
   "dependencies": {
     "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
-    "socket.io": "^2.2.0",
-    "uuid": "^3.3.2"
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.2.1",
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.5.5",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"

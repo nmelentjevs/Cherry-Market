@@ -1,32 +1,52 @@
-// const express = require('express');
+const express = require('express');
+const passport = require('passport');
+const mongoose = require('mongoose');
+const auth = require('./routes/api/auth');
+const items = require('./routes/api/items');
+const graphHTTP = require('express-graphql');
+const schema = require('./graphql/schema');
+const cors = require('cors');
 
-// const app = express();
+const app = express();
 
-// const PORT = process.env.port || 5000;
+// Passport config
+require('./config/passport')(passport);
 
-// const server = require('http').createServer(app);
-// const io = require('socket.io')(server);
-// io.on('connection', () => {
-//   console.log('Socket.io connected');
-// });
-// server.listen(PORT);
+// Passport middleware
 
-const app = require('express')();
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+app.use(passport.initialize());
 
-server.listen(5000);
-// WARNING: app.listen(80) will NOT work here!
+// DB Config
+const db = require('./config/keys').MongoURI;
 
-app.get('/', (req, res) => {
-  res.sendFile(
-    '/Users/kingusha/Desktop/HTMLCSSJS/ReactApps/Coffessions/client/public/index.html'
-  );
-});
+// Connect to Mongo
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log('MongoDB Connected...'))
+  .catch(err => console.log(err));
 
-io.on('connection', socket => {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', data => {
-    console.log(`Socked id: ${socket.id}`);
+app.use('/auth', auth);
+app.use('/items', items);
+
+app.use(cors());
+app.use(
+  '/graphql',
+  graphHTTP({
+    schema,
+    graphiql: true
+  })
+);
+
+// Server static assets if in production
+if (process.env.NODE_ENV === 'production') {
+  // Set Static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
-});
+}
+
+const PORT = process.env.port || 5000;
+
+app.listen(PORT, () => `Server started on port ${PORT}`);
