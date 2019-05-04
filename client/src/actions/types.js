@@ -1,0 +1,17 @@
+export const GET_ERRORS = 'GET_ERRORS';
+export const GET_ITEMS = 'GET_ITEMS';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const GET_PROFILE = 'GET_PROFILE';
+export const ADD_TO_BASKET = 'ADD_TO_BASKET';
+export const DELETE_FROM_BASKET = 'DELETE_FROM_BASKET';
+export const EDIT_BASKET = 'EDIT_BASKET';
+export const PAY = 'PAY';
+export const ITEMS_LOADING = 'ITEMS_LOADING';
+export const CLEAR_CURRENT_PROFILE = 'CLEAR_CURRENT_PROFILE';
+export const PAYMENT_ACCEPTED = 'PAYMENT_ACCEPTED';
+export const PAYMENT_CANCELLED = 'PAYMENT_CANCELLED';
+export const PAYMENT_ERROR = 'CLEAR_CART';
+export const CLEAR_CART = 'CLEAR_CART';
+export const BUTTON_LOADING = 'BUTTON_LOADING';
+export const RESET = 'RESET';
+export const GET_USER_ITEMS = 'GET_USER_ITEMS';

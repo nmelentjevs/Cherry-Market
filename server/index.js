@@ -1,10 +1,18 @@
 const express = require('express');
+
 const passport = require('passport');
+
 const mongoose = require('mongoose');
+
 const auth = require('./routes/api/auth');
 const items = require('./routes/api/items');
+const users = require('./routes/api/users');
+
+const bodyParser = require('body-parser');
+
 const graphHTTP = require('express-graphql');
 const schema = require('./graphql/schema');
+
 const cors = require('cors');
 
 const app = express();
@@ -25,8 +33,13 @@ mongoose
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
+// BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.use('/auth', auth);
-app.use('/items', items);
+app.use('/api/items', items);
+app.use('/api/users', users);
 
 app.use(cors());
 app.use(
@@ -49,4 +62,4 @@ if (process.env.NODE_ENV === 'production') {
 
 const PORT = process.env.port || 5000;
 
-app.listen(PORT, () => `Server started on port ${PORT}`);
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

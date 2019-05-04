@@ -64,6 +64,17 @@ const RootQuery = new GraphQLObjectType({
         return Items.find({ category: args.category });
       }
     },
+    featured: {
+      type: new GraphQLList(ItemType),
+      args: {
+        onSale: { type: GraphQLBoolean },
+        isFeatured: { type: GraphQLBoolean }
+      },
+      resolve(parent, args) {
+        // return _.find(authors, { id: args.id });
+        return Items.find({ onSale: args.onSale, isFeatured: args.isFeatured });
+      }
+    },
     items: {
       type: new GraphQLList(ItemType),
       resolve(parent, args) {

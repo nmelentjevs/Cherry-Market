@@ -3,16 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/socket.io-client": "^1.4.32",
     "apollo-boost": "^0.3.1",
+    "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "graphql": "^14.2.1",
+    "jwt-decode": "^2.2.0",
     "react": "^16.8.6",
     "react-apollo": "^2.5.5",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
+    "react-google-login": "^5.0.4",
+    "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.0",
+    "react-stripe-checkout": "^2.6.3",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "stripe": "^6.31.2"
   },
   "scripts": {
     "start": "react-scripts start",

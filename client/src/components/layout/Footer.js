@@ -45,7 +45,7 @@ export default function Footer() {
         </Row>
         <hr />
         <p className="copyright">
-          Made with <i className="fa fa-heart-o" /> by Easy Tutorials
+          Made with <i className="fa fa-heart-o" /> by Nikita Melentjevs
         </p>
       </Container>
     </section>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import SideMenu from '../layout/SideMenu';
 import Slider from '../layout/Slider';
@@ -7,17 +7,19 @@ import Featured from '../layout/Featured';
 import Products from '../layout/Products';
 import SiteFeatures from '../layout/SiteFeatures';
 
-function Layout() {
-  return (
-    <Fragment>
-      <SideMenu category="rap" />
-      <Slider />
-      <Featured />
-      <OnSale />
-      <Products />
-      <SiteFeatures />
-    </Fragment>
-  );
+class Landing extends Component {
+  render() {
+    return (
+      <Fragment>
+        <SideMenu category="rap" />
+        <Slider />
+        <Featured />
+        <OnSale />
+        <Products />
+        <SiteFeatures />
+      </Fragment>
+    );
+  }
 }
 
-export default Layout;
+export default Landing;

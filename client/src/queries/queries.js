@@ -33,6 +33,18 @@ const FIND_BY_CATEGORY = gql`
   }
 `;
 
+const FIND_BY_FEATURE = gql`
+  {
+    featured(onSale: true) {
+      id
+      name
+      category
+      price
+      imageURL
+    }
+  }
+`;
+
 const ADD_BOOK_MUTATION = gql`
   mutation($name: String!, $genre: String!, $authorId: ID!) {
     addBook(name: $name, genre: $genre, authorId: $authorId) {
@@ -66,5 +78,6 @@ export {
   GET_USERS_QUERY,
   ADD_BOOK_MUTATION,
   GET_BOOK_QUERY,
-  FIND_BY_CATEGORY
+  FIND_BY_CATEGORY,
+  FIND_BY_FEATURE
 };
