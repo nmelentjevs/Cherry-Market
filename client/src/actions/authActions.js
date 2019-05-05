@@ -48,7 +48,7 @@ export const loginUser = (userData, history) => dispatch => {
 };
 
 // Set logged in user
-export const setCurrentUser = decoded => {
+export const setCurrentUser = decoded => dispatch => {
   return {
     type: SET_CURRENT_USER,
     payload: decoded

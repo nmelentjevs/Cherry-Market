@@ -14,6 +14,7 @@ import './App.css';
 
 // Apollo
 import ApolloClient from 'apollo-boost';
+import Register from './components/user/Register';
 
 // Apollo client setup
 const client = new ApolloClient({
@@ -29,6 +30,7 @@ function App() {
 
           <Route exact path="/" component={Landing} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
 
           <Footer />
         </Router>
